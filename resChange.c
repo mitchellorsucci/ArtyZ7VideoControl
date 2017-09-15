@@ -1,10 +1,5 @@
 #include "resChange.h"
 
-struct drm_mode_card_res mode_card = {0};
-struct drm_mode_get_connector connector = {0};
-struct drm_mode_get_encoder enc = {0};
-struct drm_mode_crtc crtc = {0};
-
 /*
  *  Allocates space for a 'drm_control' struct and returns a pointer to it
  *  Sets the CRTC to the resolution requested

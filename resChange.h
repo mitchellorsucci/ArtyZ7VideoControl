@@ -34,9 +34,9 @@ typedef struct drm_cntrl{
     int dri_fd;
 
     struct drm_mode_modeinfo * current;     // The current modeset of the CRTC
-    void * fbMem[NUM_DUMB_BUFFERS];        // memory mapped locations of dumb buffers
-    uint32_t fb_id[NUM_DUMB_BUFFERS];      // Frame buffer IDS of each dumb buffer
-    uint8_t current_fb;     // between 0 and NUM_DUMB_BUFFERS, the current fb that is mapped to the CRTC
+    void * fbMem[NUM_DUMB_BUFFERS];         // memory mapped locations of dumb buffers
+    uint32_t fb_id[NUM_DUMB_BUFFERS];       // Frame buffer IDS of each dumb buffer
+    uint8_t current_fb;                     // between 0 and NUM_DUMB_BUFFERS, the current fb that is mapped to the CRTC
 
     struct drm_mode_card_res * mode_card;       // Resolution mode card
     struct drm_mode_get_connector * connector;  // Connector information
