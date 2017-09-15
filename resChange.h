@@ -411,7 +411,7 @@ typedef struct drm_cntrl{
 };
 
 int mapFBtoCRTC(drm_cntrl * control, int fb_num);
-int setCRTCresolution(struct drm_mode_modeinfo mode);
+int setNewResolution(drm_cntrl * control, struct drm_mode_modeinfo mode);
 drm_cntrl * drmControlInit(char * port, struct drm_mode_modeinfo mode);
 static int openPort(char * port, int * fd);
 int swapFB(drm_cntrl * control, int fb_num_dst, int fb_num_src);

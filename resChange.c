@@ -1,5 +1,4 @@
-#include "resChange.h"
-
+#include <resChange.h>
 /*
  *  Allocates space for a 'drm_control' struct and returns a pointer to it
  *  Sets the CRTC to the resolution requested
@@ -266,6 +265,7 @@ int drmControlClose(drm_cntrl * control) {
         free(control->map_dumb[i]);
         free(control->create_dumb[i]);
         free(control->cmd_dumb[i]);
+        munmap(control->fbMem[i], control->create_dumb[i]->size);
     }
 
     free(control->current);
@@ -282,5 +282,22 @@ int drmControlClose(drm_cntrl * control) {
 
     close(control->dri_fd);
     free(control);
+    return SUCCESS;
+}
+
+/*
+ *  Creates a new resolution mode on the connector and CRTC
+ *  Creates two new frame buffers to be used at the new resolution mode
+ *  Populates the new data into the drm_cntrl structure
+ * 
+ *  returns 0 on success
+ *  returns -1 on failure
+ */
+int setNewResolution(drm_cntrl * control, struct drm_mode_modeinfo mode) {
+    drmControlClose(control);
+    
+    drm_cntrl * temp = drmControlInit("/dev/dri/card0", mode);
+    *control = *temp;
+
     return SUCCESS;
 }
