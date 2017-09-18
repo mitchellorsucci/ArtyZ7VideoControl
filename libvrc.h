@@ -1,5 +1,5 @@
-#ifndef RESCHANGE_H
-#define RESCHANGE_H
+#ifndef LIBVRC_H
+#define LIBVRC_H
 
 #include <fcntl.h>
 #include <sys/mman.h>

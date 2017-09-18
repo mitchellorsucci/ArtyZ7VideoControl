@@ -1,4 +1,4 @@
-#include <resChange.h>
+#include <libvrc.h>
 
 int main() {
 
